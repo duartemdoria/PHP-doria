@@ -151,7 +151,7 @@ function initMap() {
             alert("Login efetuado com sucesso! Bem-vindo, " + utlizadores + "");
 
          
-            window.location.href = "index.html";
+            window.location.href = "index.php";
         } else {
             alert("Por favor, preencha o nome de utilizador e a senha.");
         }
@@ -173,7 +173,7 @@ function initMap() {
 
         function realizarLogout() {
             sessionStorage.removeItem("utilizadorLogado");
-            window.location.href = "index.html";
+            window.location.href = "index.php";
         }
 
         function submeterMarcacao(event) {

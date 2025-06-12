@@ -25,9 +25,10 @@ if (isset($_POST["email"]) || isset($_POST['password'])) {
 
             $_SESSION["id_usuario"] = $utilizador["id"];
             $_SESSION["nome"] = $utilizador["nome"];
+            $_SESSION["tipo"] = $utilizador["tipo"];
 
            
-            header("Location: index.html");
+            header("Location: index.php");
             exit;
 
         } else {

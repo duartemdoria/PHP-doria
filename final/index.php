@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -14,10 +18,15 @@
                 <li><a href="#" onclick="carregarConteudo('conteudo/portfolio.html')">Portfólio</a></li>
                 <li><a href="#" onclick="carregarConteudo('conteudo/orçamento.html')">Orçamento</a></li>
                 <li><button onclick="document.getElementById('form-marcacao').style.display = 'block';">Marcar Reunião</button></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="user_area.php">Área do Utilizador</a></li>
-                <li><a href="admin_area.php">Área Administrativa</a></li>
-                <li id="logout-link" style="display: none;"><a href="#" onclick="realizarLogout()">Logout</a></li>
+                <?php if (isset($_SESSION["id_usuario"])): ?>
+                    <li><a href="user_area.php">Área do Utilizador</a></li>
+                    <?php if ($_SESSION["tipo"] === "administrador"): ?>
+                        <li><a href="admin_area.php">Área Administrativa</a></li>
+                    <?php endif; ?>
+                    <li><a href="logout.php">Logout</a></li>
+                <?php else: ?>
+                    <li><a href="login.php">Login</a></li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>
@@ -49,7 +58,6 @@
                 <p><small>Podes modificar a data da reunião até 72 horas antes.</small></p>
             </div>
         </section>
-        
 
         <div class="slideshow-container">
             <div class="slide">
@@ -66,10 +74,9 @@
             </div>
             <div class="slide">
                 <img src="imagens/img4.jpg" alt="imagem 4">
-                <p>....</p>
+                <p>...</p>
             </div>
         </div>
-        
     </main>
     <script src="script.js"></script>
 </body>
