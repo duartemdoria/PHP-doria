@@ -17,7 +17,6 @@ session_start();
                 <li><a href="#" onclick="carregarConteudo('conteudo/sobre.html')">Início</a></li>
                 <li><a href="#" onclick="carregarConteudo('conteudo/portfolio.html')">Portfólio</a></li>
                 <li><a href="#" onclick="carregarConteudo('conteudo/orçamento.html')">Orçamento</a></li>
-                <li><button onclick="document.getElementById('form-marcacao').style.display = 'block';">Marcar Reunião</button></li>
                 <?php if (isset($_SESSION["id_usuario"])): ?>
                     <li><a href="user_area.php">Área do Utilizador</a></li>
                     <?php if ($_SESSION["tipo"] === "administrador"): ?>
