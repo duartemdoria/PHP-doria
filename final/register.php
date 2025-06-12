@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $apelido = $mysqli->real_escape_string($_POST['apelido']);
     $email = $mysqli->real_escape_string($_POST['email']);
     $telefone = $mysqli->real_escape_string($_POST['telefone']);
-    $password = $mysqli->real_escape_string($_POST['password']);
+    $password = $mysqli->real_escape_string($_POST['password']); // Store plain text password
     $tipo = $mysqli->real_escape_string($_POST['tipo']);
 
     // Check if the email is unique
@@ -26,12 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Encrypt the password
-    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-
     // Insert the user into the database
     $stmt = $mysqli->prepare("INSERT INTO utilizadores (nome, apelido, email, telefone, password, tipo) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $nome, $apelido, $email, $telefone, $hashed_password, $tipo);
+    $stmt->bind_param("ssssss", $nome, $apelido, $email, $telefone, $password, $tipo);
 
     if ($stmt->execute()) {
         echo "Utilizador registrado com sucesso!";

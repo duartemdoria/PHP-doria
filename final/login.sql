@@ -93,7 +93,7 @@ CREATE TABLE `projetos` (
 -- Estrutura da tabela `utilizadores`
 --
 CREATE TABLE `utilizadores` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(140) DEFAULT NULL,
   `email` varchar(140) NOT NULL,
   `password` varchar(16) NOT NULL,
@@ -102,9 +102,9 @@ CREATE TABLE `utilizadores` (
   `apelido` VARCHAR(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
+-- 
 -- Extraindo dados da tabela `utilizadores`
---
+-- 
 
 INSERT INTO `utilizadores` (`id`, `nome`, `email`, `password`, `tipo`, `telefone`, `apelido`) VALUES
 (1, 'Nuno 1', 'nunovieira@teste.com', 'nunoteste', 'administrador', '123456789', 'Vieira'),
