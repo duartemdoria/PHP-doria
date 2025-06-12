@@ -1,8 +1,9 @@
 <?php
-include("conexoes/conexao.php");
+include("../../conexoes/conexao.php");
 
 if (!isset($_SESSION)) {
     session_start();
+}
 
 // Check if the user is logged in and is an administrator
 if (!isset($_SESSION["id_usuario"]) || $_SESSION["tipo"] !== "administrador") {

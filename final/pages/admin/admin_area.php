@@ -8,7 +8,7 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["tipo"] !== "administrador") {
 }
 
 // Include database connection
-include("conexoes/conexao.php");
+include("../../conexoes/conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -22,10 +22,10 @@ include("conexoes/conexao.php");
     <h1>Área Administrativa</h1>
     <p>Aqui você pode criar e modificar aspectos da página web.</p>
     <ul>
-        <li><a href="register.php">Registrar Novo Utilizador</a></li>
+        <li><a href="../auth/register.php">Registrar Novo Utilizador</a></li>
         <li><a href="manage_users.php">Gerenciar Utilizadores</a></li>
         <li><a href="manage_consultations.php">Gerenciar Consultas</a></li>
-        <li><a href="logout.php">Logout</a></li>
+        <li><a href="../auth/logout.php">Logout</a></li>
     </ul>
 </body>
 </html>

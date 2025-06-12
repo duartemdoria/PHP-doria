@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Website com AJAX e RSS</title>
-    <link rel="stylesheet" href="Estilos/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOG4kW9VkB9c8f2witVb7_GITjQLB8V6w&callback=initMap"></script>
 </head>
 <body>
@@ -18,13 +18,13 @@ session_start();
                 <li><a href="#" onclick="carregarConteudo('conteudo/portfolio.html')">Portfólio</a></li>
                 <li><a href="#" onclick="carregarConteudo('conteudo/orçamento.html')">Orçamento</a></li>
                 <?php if (isset($_SESSION["id_usuario"])): ?>
-                    <li><a href="user_area.php">Área do Utilizador</a></li>
+                    <li><a href="pages/user/user_area.php">Área do Utilizador</a></li>
                     <?php if ($_SESSION["tipo"] === "administrador"): ?>
-                        <li><a href="admin_area.php">Área Administrativa</a></li>
+                        <li><a href="pages/admin/admin_area.php">Área Administrativa</a></li>
                     <?php endif; ?>
-                    <li><a href="logout.php">Logout</a></li>
+                    <li><a href="pages/auth/logout.php">Logout</a></li>
                 <?php else: ?>
-                    <li><a href="login.php">Login</a></li>
+                    <li><a href="pages/auth/login.php">Login</a></li>
                 <?php endif; ?>
             </ul>
         </nav>
@@ -60,23 +60,23 @@ session_start();
 
         <div class="slideshow-container">
             <div class="slide">
-                <img src="imagens/img1.jpg" alt="imagem 1">
+                <img src="assets/images/img1.jpg" alt="imagem 1">
                 <p>Projeto 1: Website institucional desenvolvido com HTML, CSS e JavaScript responsivo.</p>
             </div>
             <div class="slide">
-                <img src="imagens/img2.jpg" alt="imagem 2">
+                <img src="assets/images/img2.jpg" alt="imagem 2">
                 <p>...</p>
             </div>
             <div class="slide">
-                <img src="imagens/img3.jpg" alt="imagem 3">
+                <img src="assets/images/img3.jpg" alt="imagem 3">
                 <p>...</p>
             </div>
             <div class="slide">
-                <img src="imagens/img4.jpg" alt="imagem 4">
+                <img src="assets/images/img4.jpg" alt="imagem 4">
                 <p>...</p>
             </div>
         </div>
     </main>
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

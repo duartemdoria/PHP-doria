@@ -1,5 +1,5 @@
 <?php
-include("conexoes/conexao.php");
+include("../../conexoes/conexao.php");
 
 if (!isset($_SESSION)) {
     session_start();
@@ -39,13 +39,13 @@ if (!$result) {
                     <strong>Utilizador:</strong> <?php echo htmlspecialchars($consulta['nome_utilizador']); ?><br>
                     <strong>Data:</strong> <?php echo htmlspecialchars($consulta['data_consulta']); ?><br>
                     <strong>Observações:</strong> <?php echo htmlspecialchars($consulta['observacoes']); ?><br>
-                    <form action="update_consultations.php" method="POST">
+                    <form action="../user/update_consultations.php" method="POST">
                         <input type="hidden" name="id_consulta" value="<?php echo $consulta['id']; ?>">
                         <label for="nova_data">Nova Data:</label>
                         <input type="datetime-local" id="nova_data" name="nova_data" required>
                         <button type="submit">Alterar Data</button>
                     </form>
-                    <form action="delete_consultation.php" method="POST">
+                    <form action="delete_consultations.php" method="POST">
                         <input type="hidden" name="id_consulta" value="<?php echo $consulta['id']; ?>">
                         <button type="submit">Excluir Consulta</button>
                     </form>

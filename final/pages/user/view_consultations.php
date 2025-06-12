@@ -1,5 +1,5 @@
 <?php
-include("conexoes/conexao.php");
+include("../../conexoes/conexao.php");
 
 if (!isset($_SESSION)) {
     session_start();
@@ -42,7 +42,7 @@ if (!$result) {
                     // Check if the consultation can be modified (more than 72 hours before the scheduled time)
                     $hours_difference = (strtotime($consulta['data_consulta']) - time()) / 3600;
                     if ($hours_difference > 72): ?>
-                        <form action="update_consultation.php" method="POST">
+                        <form action="update_consultations.php" method="POST">
                             <input type="hidden" name="id_consulta" value="<?php echo $consulta['id']; ?>">
                             <label for="nova_data">Nova Data:</label>
                             <input type="datetime-local" id="nova_data" name="nova_data" required>

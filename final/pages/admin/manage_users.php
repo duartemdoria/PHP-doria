@@ -1,5 +1,5 @@
 <?php
-include("conexoes/conexao.php");
+include("../../conexoes/conexao.php");
 
 if (!isset($_SESSION)) {
     session_start();
@@ -38,7 +38,7 @@ if (!$result) {
                     <strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?><br>
                     <strong>Telefone:</strong> <?php echo htmlspecialchars($user['telefone']); ?><br>
                     <strong>Tipo:</strong> <?php echo htmlspecialchars($user['tipo']); ?><br>
-                    <a href="edit_user.php?id=<?php echo $user['id']; ?>">Editar</a>
+                    <a href="../user/edit_user.php?id=<?php echo $user['id']; ?>">Editar</a>
                 </li>
             <?php endwhile; ?>
         <?php else: ?>

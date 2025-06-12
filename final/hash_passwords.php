@@ -1,5 +1,5 @@
 <?php
-include("conexoes/conexao.php");
+include("../conexoes/conexao.php");
 
 // Fetch all users
 $sql = "SELECT id, password FROM utilizadores";

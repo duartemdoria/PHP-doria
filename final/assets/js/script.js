@@ -32,6 +32,8 @@ function carregarRSS() {
                     const li = document.createElement("li");
                     li.textContent = titulo.textContent;
                     lista.appendChild(li);
+                } else {
+                    console.error("Item does not have a title:", item);
                 }
             });
         })
@@ -159,19 +161,26 @@ function initMap() {
         }
     }
 
-     document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
+        const formMarcacao = document.getElementById("form-marcacao");
+        const loginLink = document.getElementById("login-link");
+        const logoutLink = document.getElementById("logout-link");
+    
+        // Check if the elements exist before accessing them
+        if (formMarcacao && loginLink && logoutLink) {
             let utilizadorLogado = sessionStorage.getItem("utilizadorLogado");
-
+    
             if (utilizadorLogado === "true") {
-                document.getElementById("form-marcacao").style.display = "block";
-                document.getElementById("login-link").style.display = "none";
-                document.getElementById("logout-link").style.display = "inline";
+                formMarcacao.style.display = "block";
+                loginLink.style.display = "none";
+                logoutLink.style.display = "inline";
             } else {
-                document.getElementById("form-marcacao").style.display = "none";
-                document.getElementById("login-link").style.display = "inline";
-                document.getElementById("logout-link").style.display = "none";
+                formMarcacao.style.display = "none";
+                loginLink.style.display = "inline";
+                logoutLink.style.display = "none";
             }
-        });
+        }
+    });
 
         function realizarLogout() {
             sessionStorage.removeItem("utilizadorLogado");

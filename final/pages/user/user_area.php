@@ -1,19 +1,24 @@
 <?php
 session_start();
 
+// Correct path to conexao.php
+include("../../conexoes/conexao.php");
+
 // Check if the user is logged in
 if (!isset($_SESSION["id_usuario"])) {
-    header("Location: login.php");
+    header("Location: ../auth/login.php");
     exit;
 }
-
-// Include database connection
-include("conexoes/conexao.php");
 
 // Fetch user details
 $id_usuario = $_SESSION["id_usuario"];
 $sql = "SELECT * FROM utilizadores WHERE id = '$id_usuario'";
 $result = $mysqli->query($sql);
+
+if (!$result) {
+    die("Erro ao buscar dados do utilizador: " . $mysqli->error);
+}
+
 $utilizador = $result->fetch_assoc();
 ?>
 
@@ -29,10 +34,10 @@ $utilizador = $result->fetch_assoc();
 
     <h2>Opções Disponíveis</h2>
     <ul>
-        <li><a href="edit_user.php">Editar Dados Pessoais</a></li> <!-- Link updated -->
+        <li><a href="edit_user.php">Editar Dados Pessoais</a></li>
         <li><a href="schedule_consultation.php">Marcar Consulta</a></li>
         <li><a href="view_consultations.php">Visualizar Consultas Futuras</a></li>
-        <li><a href="logout.php">Logout</a></li>
+        <li><a href="../auth/logout.php">Logout</a></li>
     </ul>
 </body>
 </html>
