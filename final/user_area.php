@@ -30,7 +30,7 @@ $utilizador = $result->fetch_assoc();
     <h2>Opções Disponíveis</h2>
     <ul>
         <li><a href="edit_profile.php">Editar Dados Pessoais</a></li>
-        <li><a href="schedule_consultation.php">Fazer Pedido de Marcação</a></li>
+        <li><a href="schedule_consultation.php">Marcar Consulta</a></li>
         <li><a href="view_consultations.php">Visualizar Consultas Futuras</a></li>
         <li><a href="logout.php">Logout</a></li>
     </ul>

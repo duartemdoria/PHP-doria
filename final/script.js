@@ -27,10 +27,12 @@ function carregarRSS() {
             const lista = document.getElementById("noticias");
 
             items.forEach(item => {
-                const titulo = item.querySelector("title").textContent;
-                const li = document.createElement("li");
-                li.textContent = titulo;
-                lista.appendChild(li);
+                const titulo = item.querySelector("title");
+                if (titulo) { // Ensure the title exists
+                    const li = document.createElement("li");
+                    li.textContent = titulo.textContent;
+                    lista.appendChild(li);
+                }
             });
         })
         .catch(error => console.error("Erro ao carregar RSS:", error));
