@@ -92,12 +92,14 @@ CREATE TABLE `projetos` (
 --
 -- Estrutura da tabela `utilizadores`
 --
-
 CREATE TABLE `utilizadores` (
   `id` int(11) NOT NULL,
   `nome` varchar(140) DEFAULT NULL,
   `email` varchar(140) NOT NULL,
-  `password` varchar(16) NOT NULL
+  `password` varchar(16) NOT NULL,
+  `tipo` ENUM('utilizador', 'administrador') NOT NULL DEFAULT 'utilizador',
+  `telefone` VARCHAR(20) DEFAULT NULL,
+  `apelido` VARCHAR(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
