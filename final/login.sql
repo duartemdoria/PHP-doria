@@ -96,7 +96,7 @@ CREATE TABLE `utilizadores` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(140) DEFAULT NULL,
   `email` varchar(140) NOT NULL,
-  `password` varchar(16) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `tipo` ENUM('utilizador', 'administrador') NOT NULL DEFAULT 'utilizador',
   `telefone` VARCHAR(20) DEFAULT NULL,
   `apelido` VARCHAR(100) DEFAULT NULL

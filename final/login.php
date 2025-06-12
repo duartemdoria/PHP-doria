@@ -14,23 +14,25 @@ if (isset($_POST["email"]) || isset($_POST['password'])) {
     } else {
 
         $email = $mysqli->real_escape_string($_POST['email']);
-        $password = $mysqli->real_escape_string($_POST['password']);
+        $password = $_POST['password']; // Plain text password
 
-        $sql_code = "SELECT * FROM utilizadores WHERE email='$email' AND password='$password'";
+        $sql_code = "SELECT * FROM utilizadores WHERE email='$email'";
         $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código: " . $mysqli->error);
 
         if ($sql_query->num_rows == 1) {
-
             $utilizador = $sql_query->fetch_assoc();
 
-            $_SESSION["id_usuario"] = $utilizador["id"];
-            $_SESSION["nome"] = $utilizador["nome"];
-            $_SESSION["tipo"] = $utilizador["tipo"];
+            // Verify the password
+            if (password_verify($password, $utilizador['password'])) {
+                $_SESSION["id_usuario"] = $utilizador["id"];
+                $_SESSION["nome"] = $utilizador["nome"];
+                $_SESSION["tipo"] = $utilizador["tipo"];
 
-           
-            header("Location: index.php");
-            exit;
-
+                header("Location: index.php");
+                exit;
+            } else {
+                echo "Falha ao entrar! Dados incorretos.";
+            }
         } else {
             echo "Falha ao entrar! Dados incorretos.";
         }
@@ -38,30 +40,25 @@ if (isset($_POST["email"]) || isset($_POST['password'])) {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marcações</title>
-   
+    <title>Login</title>
 </head>
 <body>
-
-<form action="" method="POST">
-    <h1> Login </h1>
-    <p>
-        <label>E-mail</label>
-        <input type="text" name="email">
-    </p>
-    <p>
-        <label>Password</label>
-        <input type="password" name="password">
-    </p>
-    <button type="submit" >Entrar</button>
-</form>
-
+    <form action="" method="POST">
+        <h1>Login</h1>
+        <p>
+            <label>E-mail</label>
+            <input type="text" name="email">
+        </p>
+        <p>
+            <label>Password</label>
+            <input type="password" name="password">
+        </p>
+        <button type="submit">Entrar</button>
+    </form>
 </body>
 </html>
