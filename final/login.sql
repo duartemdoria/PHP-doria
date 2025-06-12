@@ -106,10 +106,10 @@ CREATE TABLE `utilizadores` (
 -- Extraindo dados da tabela `utilizadores`
 --
 
-INSERT INTO `utilizadores` (`id`, `nome`, `email`, `password`) VALUES
-(1, 'Nuno 1', 'nunovieira@teste.com', 'nunoteste'),
-(2, 'Nuno2', 'nunovieiraa@teste.com', 'nunoteste2'),
-(3, 'Nuno3', 'nunovieiraaa@teste.com', 'nunoteste3');
+INSERT INTO `utilizadores` (`id`, `nome`, `email`, `password`, `tipo`, `telefone`, `apelido`) VALUES
+(1, 'Nuno 1', 'nunovieira@teste.com', 'nunoteste', 'administrador', '123456789', 'Vieira'),
+(2, 'Nuno2', 'nunovieiraa@teste.com', 'nunoteste2', 'utilizador', '987654321', 'Silva'),
+(3, 'Nuno3', 'nunovieiraaa@teste.com', 'nunoteste3', 'utilizador', '456789123', 'Santos');
 
 --
 -- Índices para tabelas despejadas
