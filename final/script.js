@@ -1,7 +1,7 @@
 window.onload = function () {
-    setTimeout(() => {
-        alert("Bem-vindo ao nosso website!");
-    }, 1000);
+    // setTimeout(() => {
+    //     alert("Bem-vindo ao nosso website!");
+    // }, 1000);
 
     carregarRSS();
 };
